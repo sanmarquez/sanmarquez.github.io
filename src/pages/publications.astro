@@ -17,7 +17,11 @@ import { profile, publications } from '../data/profile.js';
       <div>
         {publications.map((p) => (
           <div class="pub-item">
-            <div>{p.text}</div>
+            <div>
+              {p.link
+                ? <a href={p.link} target="_blank" rel="noopener noreferrer">{p.text}</a>
+                : p.text}
+            </div>
             <div class="pub-meta">{p.meta}</div>
           </div>
         ))}
