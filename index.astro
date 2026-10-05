@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { profile, skillCards, skillBars, interests } from '../data/profile.js';
+---
+<BaseLayout title="About">
+  <header class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <p class="eyebrow">Biostatistics · Data Science · Machine Learning · Epidemiology · Scientific Software</p>
+        <h1 class="hero-name">{profile.name}</h1>
+        <p class="eyebrow hero-tagline">{profile.tagline}</p>
+        <p class="hero-lede">{profile.bio}</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href={`mailto:${profile.email}`}>Get in touch</a>
+          <a class="btn btn-ghost" href="/cv/">View CV</a>
+        </div>
+        <div class="status-line">
+          <span class="status-dot"></span>
+          <span><strong style="color:var(--ink); font-weight:600;">Now:</strong> {profile.status}</span>
+        </div>
+      </div>
+
+      <aside class="contact-card">
+        <div class="avatar">
+          {profile.photo ? <img src={profile.photo} alt={profile.name} /> : profile.initials}
+        </div>
+        <div class="contact-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <a href={`mailto:${profile.email}`}>{profile.email}</a>
+        </div>
+        <div class="contact-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.6-9.3-9.1C1.2 8.6 3 5 6.6 5c2 0 3.3 1.1 3.9 2 .6-.9 1.9-2 3.9-2 3.6 0 5.4 3.6 3.9 6.9C19 16.4 12 21 12 21Z"/></svg>
+          <span>{profile.location}</span>
+        </div>
+        <div class="socials">
+          <a class="social-btn" href={`https://github.com/${profile.githubUser}`} aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+          </a>
+          <a class="social-btn" href={profile.linkedin} aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 8.5H3.56V21h3.38V8.5ZM5.25 3a1.96 1.96 0 1 0 0 3.92 1.96 1.96 0 0 0 0-3.92ZM20.44 21h-3.37v-6.4c0-1.53-.03-3.5-2.13-3.5-2.14 0-2.46 1.67-2.46 3.39V21H9.1V8.5h3.24v1.71h.05c.45-.85 1.55-1.75 3.19-1.75 3.41 0 4.04 2.25 4.04 5.17V21Z"/></svg>
+          </a>
+          <a class="social-btn" href={`https://orcid.org/${profile.orcid}`} aria-label="ORCID">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-2.4 5.4h1.5v10.2h-1.5V7.4Zm.75-2.9a1 1 0 1 1 0 2 1 1 0 0 1 0-2Zm3.15 2.9h3.6c3.43 0 4.94 2.45 4.94 5.1 0 2.9-2.27 5.1-4.9 5.1h-3.64V7.4Zm1.5 1.36v7.48h1.98c2.5 0 3.55-1.84 3.55-3.75 0-2.03-1.13-3.73-3.58-3.73h-1.95Z"/></svg>
+          </a>
+          <a class="social-btn" href={`mailto:${profile.email}`} aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          </a>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="skills">
+      <div class="section-head">
+        <p class="eyebrow">What I do</p>
+        <h2>Areas of work</h2>
+      </div>
+      <div class="skill-grid">
+        {skillCards.map((c) => (
+          <div class="skill-card">
+            <p class="k">{c.label}</p>
+            <h3>{c.title}</h3>
+            <p>{c.body}</p>
+          </div>
+        ))}
+      </div>
+      <div class="skill-bars">
+        {skillBars.map((s) => (
+          <div class="skill-bar-row">
+            <span class="label">{s.label}</span>
+            <span class="skill-bar-track"><span class={`skill-bar-fill${s.warm ? ' warm' : ''}`} style={`width:${s.pct}%`}></span></span>
+            <span class="tag">{s.tag}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section id="interests">
+      <div class="section-head">
+        <p class="eyebrow">Interests</p>
+        <h2>What I read and build around</h2>
+      </div>
+      <div class="tag-cloud">
+        {interests.map((i) => <span class={`tag${i.on ? ' on' : ''}`}>{i.label}</span>)}
+      </div>
+    </section>
+  </main>
+</BaseLayout>

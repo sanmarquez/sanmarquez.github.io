@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { experience, academic, techSkills, toolsMatrix, postgradCoursework, languages } from '../data/profile.js';
+---
+<BaseLayout title="CV">
+  <div class="wrap page-header">
+    <p class="eyebrow">Background</p>
+    <h1>CV</h1>
+    <p>9+ years in biostatistics and epidemiology. <a href="/cv.pdf">Download as PDF →</a></p>
+  </div>
+
+  <main class="wrap">
+    <section id="experience">
+      <div class="section-head">
+        <p class="eyebrow">Career</p>
+        <h2>Experience</h2>
+      </div>
+      <div class="timeline">
+        {experience.map((e) => (
+          <div class="t-item">
+            <p class="t-year">{e.year}</p>
+            <p class="t-title">{e.title}</p>
+            <p class="t-sub">{e.sub}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-head">
+        <p class="eyebrow">Expertise</p>
+        <h2>Technical &amp; Analytical Skills</h2>
+      </div>
+      <div class="skill-grid">
+        {techSkills.map((s) => (
+          <div class="skill-card">
+            <h3>{s.title}</h3>
+            <p>{s.body}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="tools-matrix">
+        {toolsMatrix.map((g) => (
+          <div class="tools-group">
+            <p class="track-title">{g.group}</p>
+            {g.subgroups.map((sg) => (
+              <div class="tools-subgroup">
+                <span class="tools-sublabel">{sg.label}:</span>
+                <div class="tag-cloud">
+                  {sg.items.map((t) => <span class="tag">{t}</span>)}
+                </div>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section id="academic">
+      <div class="section-head">
+        <p class="eyebrow">Education</p>
+        <h2>Academic Background</h2>
+      </div>
+      <div class="timeline">
+        {academic.map((a) => (
+          <div class="t-item">
+            <p class="t-year">{a.year}</p>
+            <p class="t-title">{a.title}</p>
+            <p class="t-sub">{a.sub}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="coursework">
+        <p class="section-lede" style="margin-top:30px;">Postgraduate coursework — Artificial Intelligence with Deep Learning:</p>
+        {postgradCoursework.map((track) => (
+          <div class="coursework-track">
+            <p class="track-title">{track.track}</p>
+            <div class="tag-cloud">
+              {track.topics.map((t) => <span class="tag">{t}</span>)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section id="languages">
+      <div class="section-head">
+        <p class="eyebrow">Languages</p>
+        <h2>Spoken languages</h2>
+      </div>
+      <div class="lang-grid">
+        {languages.map((l) => (
+          <div class="lang-row">
+            <span>{l.lang}</span>
+            <span class="level">{l.level}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>

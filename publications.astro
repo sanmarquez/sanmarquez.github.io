@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { profile, publications } from '../data/profile.js';
+---
+<BaseLayout title="Publications">
+  <div class="wrap page-header">
+    <p class="eyebrow">Research</p>
+    <h1>Publications</h1>
+    <p>
+      Most recent published list synced with
+      <a href={`https://orcid.org/${profile.orcid}`}>ORCID</a>.
+    </p>
+  </div>
+
+  <main class="wrap">
+    <section>
+      <div>
+        {publications.map((p) => (
+          <div class="pub-item">
+            <div>{p.text}</div>
+            <div class="pub-meta">{p.meta}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>

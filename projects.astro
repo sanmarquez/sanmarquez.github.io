@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { projects } from '../data/profile.js';
+---
+<BaseLayout title="Projects">
+  <div class="wrap page-header">
+    <p class="eyebrow">Selected work</p>
+    <h1>Projects &amp; Code</h1>
+    <p>Mostly open-source software, repositories and code I've built over the years.</p>
+  </div>
+
+  <main class="wrap">
+    <section>
+      <div class="card-grid">
+        {projects.map((p) => (
+          <div class="proj-card">
+            <h3>{p.title}</h3>
+            <p>{p.body}</p>
+            <div class="stack-row">
+              {p.stack.map((s) => <span class="chip">{s}</span>)}
+            </div>
+            <a class="proj-link" href={p.href}>View on GitHub →</a>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>
