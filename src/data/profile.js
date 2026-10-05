@@ -1,18 +1,18 @@
-// ── Edit your info here — every other page pulls from this one file ──
+// 
 export const profile = {
   name: 'Sandra Márquez',
   initials: 'SM',
   tagline: 'Senior Biostatistician at ISGlobal (Barcelona Institute for Global Health)',
   location: 'Barcelona, Spain',
 
-  // Contact — replace the placeholders in [brackets] with your real info
+
   email: 'smarquezdu@gmail.com',
   githubUser: 'sanmarquez',
   linkedin: 'https://www.linkedin.com/in/sandra-márquez-626424b7/',
   orcid: '0000-0001-7159-6495',
   domain: 'sanmarquez.github.io',
 
-  // Set this to '/photo.jpg' once you add public/photo.jpg — see README.md
+  
   photo: '/sandra_pilatus.jpg',
 
   bio: `I'm a mathematician with 9+ years in biostatistics and epidemiology — since 2018 as Senior Biostatistician
@@ -40,7 +40,7 @@ export const skillCards = [
   {
     label: '03',
     title: 'Scientific Software',
-    body: "Python and R packages, reproducible pipelines, and well-documented research workflows — this is where I'm strongest. Comfortable with Git; building up Docker for deployment.",
+    body: "Python and R packages user, reproducible pipelines, and well-documented research workflows — this is where I'm strongest. Comfortable with Git; building up Docker for deployment.",
   },
 ];
 
@@ -64,7 +64,7 @@ export const experience = [
   {
     year: 'Apr 2018 – Present · 8+ yrs',
     title: 'Senior Biostatistician',
-    sub: 'ISGlobal (Barcelona Institute for Global Health) — statistical support for the Urban Planning, Environment and Health programme; analyses on environment and health across the life course. Statistical consulting, machine learning. Greater Barcelona Metropolitan Area.',
+    sub: 'ISGlobal (Barcelona Institute for Global Health) — statistical support for the Urban Planning, Environment and Health programme; analyses on Environment and Health across the Life Course. Statistical consulting, machine learning. Greater Barcelona Metropolitan Area.',
   },
   {
     year: 'Jun 2017 – Mar 2018 · 10 mos',
@@ -147,11 +147,11 @@ export const techSkills = [
   },
   {
     title: 'R',
-    body: 'My habitual, day-to-day language for statistical analysis and bioinformatics — particularly tidyverse and Bioconductor — with regular R/Python interoperability in analytical workflows.',
+    body: 'My habitual, day-to-day language for statistical analysis  — with regular R/Python interoperability in analytical workflows.',
   },
   {
     title: 'Python',
-    body: 'My primary language for building — data pipelines, machine learning and deep learning models, package development, and APIs. Regular use of pandas, polars, statsmodels, scikit-learn, PyTorch, TensorFlow.',
+    body: 'My primary language for building — data pipelines, machine learning and deep learning models and APIs. Regular use of pandas, polars, statsmodels, scikit-learn, PyTorch, TensorFlow.',
   },
   {
     title: 'Scientific Software & Reproducibility',
@@ -163,7 +163,7 @@ export const techSkills = [
   },
 ];
 
-// Detailed tool/technology matrix — rendered as grouped tag-clouds below the skill cards.
+
 export const toolsMatrix = [
   {
     group: 'Programming & Core Data Science',
